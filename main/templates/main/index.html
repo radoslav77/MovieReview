@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="card" id="back" style="background-color:#94a2a2;">
+		<div class="card-body">
+			<div class="row ">
+				{% for movie in movies %}
+					<div class="col md-4">
+						<div class="card text-center">
+							<div class="card-body">
+								<img src="{{movie.image}}" alt="Movie poster" class="img fluid" style="width:55%;">
+								<h3 class="card-center">{{movie.name}}</h3>
+								<p>{{ movie.relised_date }}</p>
+								<p>{{ movie.description }}</p>
+								<a href="{% url 'main:ditail' movie.id %}">Read more....</a>
+							</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
